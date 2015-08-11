@@ -19,6 +19,7 @@ void MIInitializeCocoaLumberjack()
     // Set up the logging.
 #ifdef DEBUG
 //    I've not had time to resolve why DDTTYLogger outputs out of sync.
+//    No sequence of log message issues when running OS X demo applications.
 //    [DDLog addLogger:[DDTTYLogger sharedInstance] withLogLevel:LOG_LEVEL_INFO];
 #endif
     // Create the file logger.
