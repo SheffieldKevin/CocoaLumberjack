@@ -37,18 +37,15 @@ void MIInitializeCocoaLumberjack()
     [DDLog addLogger:fileLogger withLogLevel:LOG_LEVEL_INFO];
     
     MILoggingFunction miLog = ^void(NSString *msg, NSString *objClass,
-                                    NSString *objStringRep, NSString *file,
+                                    NSString *objStringRep, NSString *fileName,
                                     int line, NSString *function)
     {
         BOOL async = YES;
-        NSString *_sFileName;
-        if (file)
+        if (fileName)
         {
-            // _sFileName = [[NSString stringWithUTF8String:file] lastPathComponent];
-            _sFileName = file.lastPathComponent;
             [DDLog log:async level:LOG_LEVEL_INFO flag:LOG_FLAG_INFO
                context:0 file:nil function:nil line:0 tag:0
-                format:@"File: %@ Line: %d", _sFileName, line];
+                format:@"File: %@ Line: %d", fileName, line];
         }
         
         if (function)
